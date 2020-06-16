@@ -49,6 +49,29 @@ Com base nas regras acima imprima na tela as mensagens:
 - `SE` a pessoa estiver aposentada: `Silvana, você pode se aposentar!`;
 - `SE` a pessoa NÃO estiver aposentada: `Silvana, você ainda não pode se aposentar!`;
 
+### Construção e impressão de objetos
+
+Crie um programa que armazena dados da empresa Rocketseat dentro de um objeto chamado `empresa`. Os dados a serem armazenados são:
+
+Imprima em tela utilizando `console.log` o nome da empresa e seu endereço no seguinte formato:
+
+```
+A empresa Rocketseat está localizada em Rua Guilherme Gembala, 260
+```
+
+### Vetores e objetos
+
+Crie um programa com um objeto para armazenar dados de um programador como `nome`, `idade` e `tecnologias` que trabalha.
+
+Um programador pode trabalhar com várias tecnologias, por isso armazene essas tecnologias em um array.
+
+Imprima em tela o nome e especialidade da primeira tecnologia que o usuário utiliza no seguinte formato:
+
+```
+O usuário Carlos tem 32 anos e usa a tecnologia C++ com especialidade em Desktop
+```
+
+
 # Resolução
 ```js
 // Programa para calcular IMC e nível de obesidade
@@ -92,6 +115,72 @@ if(sexo === 'F'){
 } else{
     console.log('Sexo deve ser M ou F')
 }
+```
+
+```js
+// Programa que armazena dados da empresa Rocketseat em objeto
+
+const empresa = {
+    nome: 'Rocketseat',
+    cor: 'Roxo',
+    foco: 'Programação',
+    endereço: {
+        rua: 'Rua Guilherme Gembala',
+        número: 260,
+    } 
+};
+
+console.log(`A empresa ${empresa.nome} está localizada em ${empresa.endereço.rua}, ${empresa.endereço.número}`);
+```
+
+```js
+//Programa com objeto que armazena dados de um programador como
+// nome, idade e tecnologias que trabalha
+
+const data = {
+    programador: [
+        {
+            nome: 'Lucio',
+            especialidade: "Desktop",
+            idade: 34,
+            tech1:
+                {
+                    nome: 'C#, ',
+                    info: 'Backend',
+                },
+            tech2:    
+                {
+                    nome: 'HTML',
+                    info: 'Web',
+                },            
+        },
+        {
+            nome: 'Nonato',
+            especialidade: "Mobile e Desktop",
+            idade: 54,
+            techs:[ 
+                {
+                    nome: 'ReactJS, ',
+                    info: 'Frontend Web',
+                },
+                {
+                    nome: 'NodeJS',
+                    info: 'Backend',
+                }
+            ]    
+        },
+    ]
+};
+
+console.log(`O usuário ${data.programador[1].nome} tem ${data.programador[1].idade} anos`)
+console.log(`e usa tecnologias como ${data.programador[1].techs[0].nome}${data.programador[1].techs[1].nome}`)
+console.log(`com especialidade em ${data.programador[1].especialidade}`)
+
+// console.log(data)
+
+// console.log(data.programador[0].tech1)
+
+// console.log(data.programador[1].techs)
 ```
 
 ## :memo: Licença
