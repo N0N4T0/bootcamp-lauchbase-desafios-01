@@ -71,6 +71,49 @@ Imprima em tela o nome e especialidade da primeira tecnologia que o usuário uti
 O usuário Carlos tem 32 anos e usa a tecnologia C++ com especialidade em Desktop
 ```
 
+### Usuários e tecnologias
+
+Crie um programa que armazena um array de usuários (objetos), cada usuário tem um `nome` e suas `tecnologias` (novo array), por exemplo:
+
+```js
+const usuarios = [
+  { nome: "Carlos", tecnologias: ["HTML", "CSS"] },
+  { nome: "Jasmine", tecnologias: ["JavaScript", "CSS"] },
+  { nome: "Tuane", tecnologias: ["HTML", "Node.js"] }
+];
+```
+
+### Busca por tecnologia
+
+Baseado no desafio anterior, utilize a mesma lista de usuários construída.
+
+Crie uma função que recebe os dados de um objeto de usuário e retorna SE o usuário trabalha com CSS ou não. Essa função deve retornar um boolean `true/false`.
+
+### Soma de despesas e receitas
+
+Crie um programa que calcula a soma de receitas e despesas de usuários e no fim retorna o saldo (`receitas - despesas`).
+
+Utilize o array de usuários abaixo:
+
+```js
+const usuarios = [
+  {
+    nome: "Salvio",
+    receitas: [115.3, 48.7, 98.3, 14.5],
+    despesas: [85.3, 13.5, 19.9]
+  },
+  {
+    nome: "Marcio",
+    receitas: [24.6, 214.3, 45.3],
+    despesas: [185.3, 12.1, 120.0]
+  },
+  {
+    nome: "Lucia",
+    receitas: [9.8, 120.3, 340.2, 45.3],
+    despesas: [450.2, 29.9]
+  }
+];
+```
 
 # Resolução
 ```js
@@ -182,6 +225,100 @@ console.log(`com especialidade em ${data.programador[1].especialidade}`)
 
 // console.log(data.programador[1].techs)
 ```
+
+```js
+//programa que armazena um array de usuários, cada um tem um nome e suas
+//tecnologias
+
+ const usuarios = [
+    { nome: 'Carlos', tecnologias: ['HTML', ' CSS'] },
+    { nome: 'Jasmine', tecnologias: ['JavaScript', ' CSS'] },
+    { nome: 'Tuane', tecnologias: ['HTML', ' Node.js'] },
+ ];
+
+ 
+for(let i = 0; i < usuarios.length; i++){
+    console.log(`${usuarios[i].nome} trabalha com ${usuarios[i].tecnologias}`)
+}
+```
+
+```js
+ //programa que busca por tecnologia trabalhada
+
+ const usuarios = [
+    { nome: 'Carlos', tecnologias: ['HTML', 'CSS'] },
+    { nome: 'Jasmine', tecnologias: ['JavaScript', 'CSS'] },
+    { nome: 'Tuane', tecnologias: ['HTML', 'Node.js'] },
+ ];
+
+function checaSeUsuarioUsaCSS(usuario){
+    for(let tecnologia of usuario.tecnologias){
+        if(tecnologia == 'CSS') return true
+    }
+
+    return false
+}
+
+
+for(let i = 0; i < usuarios.length; i++){
+    const usuarioTrabalhaComCSS = checaSeUsuarioUsaCSS(usuarios[i])
+
+    if(usuarioTrabalhaComCSS){
+        console.log(`O usuario ${usuarios[i].nome} trabalha com CSS`)
+    }
+}
+```
+
+```js
+//programa que calcula a soma de receitas e depesas e retorna
+// o saldo reeitas - despesas
+
+const usuarios = [
+    {
+      nome: "Salvio",
+      receitas: [115.3, 48.7, 98.3, 14.5],
+      despesas: [85.3, 13.5, 19.9]
+    },
+    {
+      nome: "Marcio",
+      receitas: [24.6, 214.3, 45.3],
+      despesas: [185.3, 12.1, 120.0]
+    },
+    {
+      nome: "Lucia",
+      receitas: [9.8, 120.3, 340.2, 45.3],
+      despesas: [450.2, 29.9]
+    }
+];
+
+function calculaSaldo(receitas, despesas){
+    const somaReceitas = somaNumeros(receitas)
+    const somaDespesas = somaNumeros(despesas)
+
+    return somaReceitas - somaDespesas
+}
+
+function somaNumeros(numeros){
+    let soma = 0
+
+    for(let numero of numeros){
+        soma = soma + numero
+    }
+    return soma
+}
+
+for(let usuario of usuarios){
+    const saldo = calculaSaldo(usuario.receitas, usuario.despesas)
+
+    if(saldo > 0){
+        console.log(`${usuario.nome} possui saldo POSITVO ${saldo}`)
+    }
+    else {
+        console.log(`${usuario.nome} possui saldo NEGATIVO ${saldo}`)
+    }
+}  
+```
+
 
 ## :memo: Licença
 
