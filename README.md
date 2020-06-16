@@ -50,8 +50,49 @@ Com base nas regras acima imprima na tela as mensagens:
 - `SE` a pessoa NÃO estiver aposentada: `Silvana, você ainda não pode se aposentar!`;
 
 # Resolução
+```js
+// Programa para calcular IMC e nível de obesidade
 
+const nome = 'Lucio'
+const peso = 185
+const altura = 1.90
 
+const imc = peso / (altura*altura)
+
+if(imc >= 30){
+    console.log(`${nome} você está acima do peso. Seu IMC é: ${imc}`)
+}
+else{
+    console.log(`${nome} você não está acima do peso. Seu IMC é: ${imc}`)
+}
+```
+
+```js
+//Programa que calcula a aposentadoria da pessoa
+
+const nome = 'Lucio'
+const sexo = 'M'
+const idade = 64
+const contribuicao = 21
+
+if(sexo === 'F'){
+    if(idade+contribuicao >= 85){
+        console.log(`${nome}, você pode se aposentar!`)
+    }
+    else{
+        console.log(`${nome}, você não pode se aposentar!`)
+    }
+} else if(sexo === 'M') {
+    if(idade+contribuicao >= 95){
+        console.log(`${nome}, você pode se aposentar!`)
+    }
+    else{
+        console.log(`${nome}, você não pode se aposentar!`)
+    }
+} else{
+    console.log('Sexo deve ser M ou F')
+}
+```
 
 ## :memo: Licença
 
